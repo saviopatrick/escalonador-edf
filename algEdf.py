@@ -57,7 +57,7 @@ def escalonador_edf():
         
         if tarefa_atual:
             print(f"{Fore.GREEN}Tempo atual: {tempo_atual}")
-            print(f"Executando Tarefa: {tarefa_atual.nome} (Prazo: {tarefa_atual.prazo}, Restante: {tarefa_atual.restante}){Style.RESET_ALL}")
+            print(f"Executando => {tarefa_atual.nome} (Prazo: {tarefa_atual.prazo}, Restante: {tarefa_atual.restante}){Style.RESET_ALL}")
             tarefa_atual.restante -= 1
             time.sleep(0.5)
             
