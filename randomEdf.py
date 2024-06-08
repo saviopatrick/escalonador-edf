@@ -1,6 +1,7 @@
 import time
-from queue import PriorityQueue
 import random
+from queue import PriorityQueue
+from colorama import Fore, Style
 
 class Tarefa:
     def __init__(self, nome, prazo, duracao):
@@ -40,12 +41,12 @@ def escalonador_edf():
         
         if tarefa_atual:
             print(f"Tempo atual: {tempo_atual}")
-            print(f"Executando Tarefa: {tarefa_atual.nome} (Prazo: {tarefa_atual.prazo}, Restante: {tarefa_atual.restante})")
+            print(f"{Fore.GREEN}Executando Tarefa: {tarefa_atual.nome} (Prazo: {tarefa_atual.prazo}, Restante: {tarefa_atual.restante}){Style.RESET_ALL}")
             tarefa_atual.restante -= 1
             time.sleep(0.5)
             
             if tarefa_atual.restante == 0:
-                print(f"{tarefa_atual.nome} concluída")
+                print(f"{Fore.RED}{tarefa_atual.nome} concluída{Style.RESET_ALL}")
                 tarefa_atual = None
 
         tempo_atual += 1
